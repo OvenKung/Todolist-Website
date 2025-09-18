@@ -3,8 +3,8 @@ import { Welcome } from "../welcome/welcome";
 
 export function meta({}: Route.MetaArgs) {
   return [
-    { title: "New React Router App" },
-    { name: "description", content: "Welcome to React Router!" },
+    { title: "Todo List - จัดการงานอย่างมีประสิทธิภาพ" },
+    { name: "description", content: "เว็บไซต์จัดการงาน Todo List ที่ทันสมัยและใช้งานง่าย พร้อมระบบจัดลำดับความสำคัญ หมวดหมู่ และบันทึกข้อมูลอัตโนมัติ" },
   ];
 }
 
