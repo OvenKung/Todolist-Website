@@ -457,43 +457,43 @@ export function Welcome() {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50 dark:from-gray-900 dark:via-blue-900 dark:to-indigo-900">
-      <div className="container mx-auto max-w-5xl px-4 py-8">
+      <div className="container mx-auto max-w-7xl px-3 sm:px-4 lg:px-6 py-4 sm:py-6 lg:py-8">
         {/* Header */}
-        <div className="text-center mb-8 relative">
+        <div className="text-center mb-6 sm:mb-8 relative">
           <button
             onClick={toggleTheme}
-            className="absolute top-0 right-0 p-3 rounded-full bg-white dark:bg-gray-800 shadow-lg border border-gray-200 dark:border-gray-700 hover:shadow-xl transition-all duration-300 group"
+            className="absolute top-0 right-0 sm:right-2 p-2 sm:p-3 rounded-full bg-white dark:bg-gray-800 shadow-lg border border-gray-200 dark:border-gray-700 hover:shadow-2xl hover:shadow-blue-500/20 transition-all duration-300 group hover:scale-110 hover:-translate-y-1 hover:rotate-12"
             title={isDarkMode ? 'เปลี่ยนเป็นโหมดสว่าง' : 'เปลี่ยนเป็นโหมดมืด'}
           >
-            <div className="relative w-6 h-6 overflow-hidden">
-              <span className={`absolute inset-0 text-2xl transition-transform duration-500 ${isDarkMode ? 'translate-y-0' : 'translate-y-8'}`}>
+            <div className="relative w-5 h-5 sm:w-6 sm:h-6 overflow-hidden">
+              <span className={`absolute inset-0 text-xl sm:text-2xl transition-transform duration-500 group-hover:scale-110 ${isDarkMode ? 'translate-y-0' : 'translate-y-8'}`}>
                 🌙
               </span>
-              <span className={`absolute inset-0 text-2xl transition-transform duration-500 ${isDarkMode ? '-translate-y-8' : 'translate-y-0'}`}>
+              <span className={`absolute inset-0 text-xl sm:text-2xl transition-transform duration-500 group-hover:scale-110 ${isDarkMode ? '-translate-y-8' : 'translate-y-0'}`}>
                 ☀️
               </span>
             </div>
           </button>
-          <h1 className="text-5xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent mb-2">
+          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 bg-clip-text text-transparent mb-2 pr-12 sm:pr-16 hover:from-blue-500 hover:via-purple-500 hover:to-pink-500 transition-all duration-500 cursor-default hover:scale-105 transform">
             ✅ Todo List Pro
           </h1>
-          <p className="text-gray-600 dark:text-gray-300 text-lg">
+          <p className="text-gray-600 dark:text-gray-300 text-base sm:text-lg px-4">
             จัดการงานของคุณอย่างมีประสิทธิภาพและเป็นระบบ
           </p>
         </div>
 
         {/* Notifications */}
         {notifications.length > 0 && (
-          <div className="mb-8 space-y-2">
+          <div className="mb-6 sm:mb-8 space-y-2">
             {notifications.map((notification, index) => (
-              <div key={index} className="bg-gradient-to-r from-red-50 to-orange-50 dark:from-red-900 dark:to-orange-900 border border-red-200 dark:border-red-700 rounded-xl p-4">
+              <div key={index} className="bg-gradient-to-r from-red-50 to-orange-50 dark:from-red-900 dark:to-orange-900 border border-red-200 dark:border-red-700 rounded-xl p-3 sm:p-4 hover:shadow-lg hover:shadow-red-500/20 transition-all duration-300 transform hover:scale-[1.02] hover:-translate-y-1 animate-pulse">
                 <div className="flex items-center justify-between">
-                  <span className="text-red-800 dark:text-red-200 font-medium">
+                  <span className="text-red-800 dark:text-red-200 font-medium text-sm sm:text-base pr-2">
                     {notification}
                   </span>
                   <button
                     onClick={() => setNotifications(notifications.filter((_, i) => i !== index))}
-                    className="text-red-600 dark:text-red-400 hover:text-red-800 dark:hover:text-red-200 transition-colors"
+                    className="text-red-600 dark:text-red-400 hover:text-red-800 dark:hover:text-red-200 transition-all duration-200 flex-shrink-0 p-1 hover:scale-125 hover:rotate-90 rounded-full hover:bg-red-100 dark:hover:bg-red-800"
                   >
                     ✕
                   </button>
@@ -505,97 +505,99 @@ export function Welcome() {
 
         {/* Progress Bar */}
         {todos.length > 0 && (
-          <div className="bg-white dark:bg-gray-800 rounded-xl p-6 shadow-lg border border-gray-100 dark:border-gray-700 mb-8">
-            <div className="flex items-center justify-between mb-4">
-              <h3 className="text-lg font-semibold text-gray-800 dark:text-white">📈 ความคืบหน้าโดยรวม</h3>
-              <div className="flex items-center space-x-4">
-                <span className="text-2xl font-bold text-blue-600 dark:text-blue-400">
+          <div className="bg-gradient-to-br from-white to-gray-50 dark:from-gray-800 dark:to-gray-900 rounded-xl p-4 sm:p-6 shadow-lg hover:shadow-2xl hover:shadow-blue-500/10 border border-gray-100 dark:border-gray-700 mb-6 sm:mb-8 transition-all duration-300 transform hover:scale-[1.01] hover:-translate-y-1">
+            <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between mb-4 space-y-3 sm:space-y-0">
+              <h3 className="text-base sm:text-lg font-semibold text-gray-800 dark:text-white hover:text-blue-600 dark:hover:text-blue-400 transition-colors duration-200">📈 ความคืบหน้าโดยรวม</h3>
+              <div className="flex items-center space-x-2 sm:space-x-4 w-full sm:w-auto">
+                <span className="text-xl sm:text-2xl font-bold text-blue-600 dark:text-blue-400 hover:scale-110 transition-transform duration-200">
                   {getProgressStats().percentage}%
                 </span>
                 <button
                   onClick={() => setIsFocusMode(!isFocusMode)}
-                  className={`px-4 py-2 rounded-lg font-medium transition-colors ${
+                  className={`px-3 sm:px-4 py-2 rounded-lg text-sm sm:text-base font-medium transition-all duration-300 flex-1 sm:flex-initial transform hover:scale-105 hover:shadow-lg ${
                     isFocusMode 
-                      ? 'bg-purple-600 text-white' 
-                      : 'bg-purple-100 dark:bg-purple-900 text-purple-800 dark:text-purple-200 hover:bg-purple-200 dark:hover:bg-purple-800'
+                      ? 'bg-gradient-to-r from-purple-600 to-purple-700 text-white shadow-purple-500/30' 
+                      : 'bg-gradient-to-r from-purple-100 to-purple-200 dark:from-purple-900 dark:to-purple-800 text-purple-800 dark:text-purple-200 hover:from-purple-200 hover:to-purple-300 dark:hover:from-purple-800 dark:hover:to-purple-700'
                   }`}
                   title="แสดงเฉพาะงานสำคัญและเร่งด่วน"
                 >
-                  🎯 {isFocusMode ? 'ออกจากโฟกัส' : 'โหมดโฟกัส'}
+                  <span className="hidden sm:inline">🎯 {isFocusMode ? 'ออกจากโฟกัส' : 'โหมดโฟกัส'}</span>
+                  <span className="sm:hidden">🎯 {isFocusMode ? 'ปกติ' : 'โฟกัส'}</span>
                 </button>
               </div>
             </div>
             
-            <div className="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-4 mb-4 overflow-hidden">
+            <div className="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-3 sm:h-4 mb-4 overflow-hidden shadow-inner hover:shadow-lg transition-shadow duration-300">
               <div 
-                className="h-full bg-gradient-to-r from-blue-500 to-purple-500 rounded-full transition-all duration-1000 ease-out relative"
+                className="h-full bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 rounded-full transition-all duration-1000 ease-out relative shadow-lg"
                 style={{ width: `${getProgressStats().percentage}%` }}
               >
-                <div className="absolute inset-0 bg-gradient-to-r from-white/20 to-transparent animate-pulse"></div>
+                <div className="absolute inset-0 bg-gradient-to-r from-white/30 to-transparent animate-pulse"></div>
+                <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent animate-[shimmer_2s_ease-in-out_infinite]"></div>
               </div>
             </div>
             
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-4 text-sm">
-              <div className="text-center">
-                <div className="font-semibold text-blue-600 dark:text-blue-400">{getProgressStats().completed}</div>
-                <div className="text-gray-600 dark:text-gray-400">เสร็จแล้ว</div>
+            <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 sm:gap-4 text-xs sm:text-sm">
+              <div className="text-center group cursor-default">
+                <div className="font-semibold text-blue-600 dark:text-blue-400 text-lg sm:text-xl group-hover:scale-110 transition-transform duration-200">{getProgressStats().completed}</div>
+                <div className="text-gray-600 dark:text-gray-400 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors duration-200">เสร็จแล้ว</div>
               </div>
-              <div className="text-center">
-                <div className="font-semibold text-orange-600 dark:text-orange-400">{getProgressStats().total - getProgressStats().completed}</div>
-                <div className="text-gray-600 dark:text-gray-400">เหลือ</div>
+              <div className="text-center group cursor-default">
+                <div className="font-semibold text-orange-600 dark:text-orange-400 text-lg sm:text-xl group-hover:scale-110 transition-transform duration-200">{getProgressStats().total - getProgressStats().completed}</div>
+                <div className="text-gray-600 dark:text-gray-400 group-hover:text-orange-600 dark:group-hover:text-orange-400 transition-colors duration-200">เหลือ</div>
               </div>
-              <div className="text-center">
-                <div className="font-semibold text-red-600 dark:text-red-400">{getProgressStats().overdue}</div>
-                <div className="text-gray-600 dark:text-gray-400">เลยกำหนด</div>
+              <div className="text-center group cursor-default">
+                <div className="font-semibold text-red-600 dark:text-red-400 text-lg sm:text-xl group-hover:scale-110 transition-transform duration-200">{getProgressStats().overdue}</div>
+                <div className="text-gray-600 dark:text-gray-400 group-hover:text-red-600 dark:group-hover:text-red-400 transition-colors duration-200">เลยกำหนด</div>
               </div>
-              <div className="text-center">
-                <div className="font-semibold text-yellow-600 dark:text-yellow-400">{getProgressStats().upcoming}</div>
-                <div className="text-gray-600 dark:text-gray-400">ใกล้ครบกำหนด</div>
+              <div className="text-center group cursor-default">
+                <div className="font-semibold text-yellow-600 dark:text-yellow-400 text-lg sm:text-xl group-hover:scale-110 transition-transform duration-200">{getProgressStats().upcoming}</div>
+                <div className="text-gray-600 dark:text-gray-400 group-hover:text-yellow-600 dark:group-hover:text-yellow-400 transition-colors duration-200">ใกล้ครบกำหนด</div>
               </div>
             </div>
           </div>
         )}
 
         {/* Stats Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-4 mb-8">
-          <div className="bg-white dark:bg-gray-800 rounded-xl p-6 shadow-lg border border-gray-100 dark:border-gray-700 hover:shadow-xl transition-shadow">
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4 mb-6 sm:mb-8">
+          <div className="bg-white dark:bg-gray-800 rounded-xl p-4 sm:p-6 shadow-lg border border-gray-100 dark:border-gray-700 hover:shadow-xl transition-shadow">
             <div className="flex items-center">
-              <div className="p-3 rounded-full bg-blue-100 dark:bg-blue-900 mr-4">
-                <span className="text-2xl">📋</span>
+              <div className="p-2 sm:p-3 rounded-full bg-blue-100 dark:bg-blue-900 mr-3 sm:mr-4">
+                <span className="text-lg sm:text-2xl">📋</span>
               </div>
-              <div>
-                <div className="text-2xl font-bold text-blue-600 dark:text-blue-400">
+              <div className="min-w-0 flex-1">
+                <div className="text-lg sm:text-2xl font-bold text-blue-600 dark:text-blue-400">
                   {displayTodos.length}/{todos.length}
                 </div>
-                <div className="text-sm text-gray-600 dark:text-gray-400">
-                  {isFocusMode ? 'โฟกัส/ทั้งหมด' : 'งานที่แสดง/ทั้งหมด'}
+                <div className="text-xs sm:text-sm text-gray-600 dark:text-gray-400 truncate">
+                  {isFocusMode ? 'โฟกัส/ทั้งหมด' : 'แสดง/ทั้งหมด'}
                 </div>
               </div>
             </div>
           </div>
-          <div className="bg-white dark:bg-gray-800 rounded-xl p-6 shadow-lg border border-gray-100 dark:border-gray-700 hover:shadow-xl transition-shadow">
+          <div className="bg-white dark:bg-gray-800 rounded-xl p-4 sm:p-6 shadow-lg border border-gray-100 dark:border-gray-700 hover:shadow-xl transition-shadow">
             <div className="flex items-center">
-              <div className="p-3 rounded-full bg-orange-100 dark:bg-orange-900 mr-4">
-                <span className="text-2xl">🕒</span>
+              <div className="p-2 sm:p-3 rounded-full bg-orange-100 dark:bg-orange-900 mr-3 sm:mr-4">
+                <span className="text-lg sm:text-2xl">🕒</span>
               </div>
-              <div>
-                <div className="text-2xl font-bold text-orange-600 dark:text-orange-400">
+              <div className="min-w-0 flex-1">
+                <div className="text-lg sm:text-2xl font-bold text-orange-600 dark:text-orange-400">
                   {displayTodos.filter(todo => !todo.completed).length}
                 </div>
-                <div className="text-sm text-gray-600 dark:text-gray-400">รอดำเนินการ</div>
+                <div className="text-xs sm:text-sm text-gray-600 dark:text-gray-400 truncate">รอดำเนินการ</div>
               </div>
             </div>
           </div>
-          <div className="bg-white dark:bg-gray-800 rounded-xl p-6 shadow-lg border border-gray-100 dark:border-gray-700 hover:shadow-xl transition-shadow">
+          <div className="bg-white dark:bg-gray-800 rounded-xl p-4 sm:p-6 shadow-lg border border-gray-100 dark:border-gray-700 hover:shadow-xl transition-shadow">
             <div className="flex items-center">
-              <div className="p-3 rounded-full bg-green-100 dark:bg-green-900 mr-4">
-                <span className="text-2xl">✅</span>
+              <div className="p-2 sm:p-3 rounded-full bg-green-100 dark:bg-green-900 mr-3 sm:mr-4">
+                <span className="text-lg sm:text-2xl">✅</span>
               </div>
-              <div>
-                <div className="text-2xl font-bold text-green-600 dark:text-green-400">
+              <div className="min-w-0 flex-1">
+                <div className="text-lg sm:text-2xl font-bold text-green-600 dark:text-green-400">
                   {displayTodos.filter(todo => todo.completed).length}
                 </div>
-                <div className="text-sm text-gray-600 dark:text-gray-400">เสร็จแล้ว</div>
+                <div className="text-xs sm:text-sm text-gray-600 dark:text-gray-400 truncate">เสร็จแล้ว</div>
               </div>
             </div>
           </div>
@@ -629,54 +631,57 @@ export function Welcome() {
         </div>
 
         {/* Add Todo Section */}
-        <div className="bg-white dark:bg-gray-800 rounded-xl p-6 shadow-lg border border-gray-100 dark:border-gray-700 mb-8">
+        <div className="bg-gradient-to-br from-white to-blue-50 dark:from-gray-800 dark:to-gray-900 rounded-xl p-4 sm:p-6 shadow-lg hover:shadow-2xl hover:shadow-blue-500/10 border border-gray-100 dark:border-gray-700 mb-6 sm:mb-8 transition-all duration-300 transform hover:scale-[1.01] hover:-translate-y-1">
           <div className="flex flex-col space-y-4">
-            <div className="flex items-center space-x-2">
+            <div className="flex flex-col sm:flex-row items-stretch sm:items-center space-y-2 sm:space-y-0 sm:space-x-2">
               <input
                 type="text"
                 value={newTodo}
                 onChange={(e) => setNewTodo(e.target.value)}
                 onKeyPress={(e) => e.key === 'Enter' && addTodo()}
                 placeholder="เพิ่มงานใหม่..."
-                className="flex-1 px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent dark:bg-gray-700 dark:text-white placeholder-gray-500 dark:placeholder-gray-400 text-lg"
+                className="flex-1 px-3 sm:px-4 py-2 sm:py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent dark:bg-gray-700 dark:text-white placeholder-gray-500 dark:placeholder-gray-400 text-base sm:text-lg hover:shadow-md focus:shadow-lg transition-shadow duration-300"
               />
-              <button
-                onClick={() => setIsAddingTodo(!isAddingTodo)}
-                className={`px-4 py-3 rounded-lg transition-colors ${
-                  isAddingTodo 
-                    ? 'bg-blue-600 hover:bg-blue-700 text-white' 
-                    : 'bg-gray-500 hover:bg-gray-600 text-white'
-                }`}
-              >
-                ⚙️
-              </button>
-              <button
-                onClick={addTodo}
-                disabled={!newTodo.trim()}
-                className="px-8 py-3 bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 disabled:from-gray-400 disabled:to-gray-400 text-white rounded-lg transition-all disabled:cursor-not-allowed font-medium"
-              >
-                เพิ่ม ✨
-              </button>
+              <div className="flex space-x-2">
+                <button
+                  onClick={() => setIsAddingTodo(!isAddingTodo)}
+                  className={`px-3 sm:px-4 py-2 sm:py-3 rounded-lg transition-all duration-300 flex-shrink-0 transform hover:scale-105 hover:shadow-lg ${
+                    isAddingTodo 
+                      ? 'bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white shadow-blue-500/30' 
+                      : 'bg-gradient-to-r from-gray-500 to-gray-600 hover:from-gray-600 hover:to-gray-700 text-white shadow-gray-500/30'
+                  }`}
+                >
+                  ⚙️
+                </button>
+                <button
+                  onClick={addTodo}
+                  disabled={!newTodo.trim()}
+                  className="px-4 sm:px-8 py-2 sm:py-3 bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 disabled:from-gray-400 disabled:to-gray-400 text-white rounded-lg transition-all duration-300 disabled:cursor-not-allowed font-medium text-sm sm:text-base flex-shrink-0 transform hover:scale-105 hover:shadow-lg shadow-blue-500/30 disabled:shadow-none disabled:transform-none"
+                >
+                  <span className="hidden sm:inline">เพิ่ม ✨</span>
+                  <span className="sm:hidden">เพิ่ม</span>
+                </button>
+              </div>
             </div>
             
             {isAddingTodo && (
-              <div className="flex flex-col sm:flex-row space-y-2 sm:space-y-0 sm:space-x-4 p-4 bg-gray-50 dark:bg-gray-700 rounded-lg">
+              <div className="flex flex-col lg:flex-row space-y-4 lg:space-y-0 lg:space-x-4 p-3 sm:p-4 bg-gray-50 dark:bg-gray-700 rounded-lg">
                 <div className="flex-1">
                   <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
                     หมวดหมู่
                   </label>
-                  <div className="flex space-x-2">
+                  <div className="flex flex-col sm:flex-row space-y-2 sm:space-y-0 sm:space-x-2">
                     <input
                       type="text"
                       value={newTodoCategory}
                       onChange={(e) => setNewTodoCategory(e.target.value)}
                       placeholder="กรอกหมวดหมู่ใหม่..."
-                      className="flex-1 px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent dark:bg-gray-600 dark:text-white placeholder-gray-500 dark:placeholder-gray-400"
+                      className="flex-1 px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent dark:bg-gray-600 dark:text-white placeholder-gray-500 dark:placeholder-gray-400 text-sm"
                     />
                     <select
                       value=""
                       onChange={(e) => e.target.value && setNewTodoCategory(e.target.value)}
-                      className="px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent dark:bg-gray-600 dark:text-white"
+                      className="px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent dark:bg-gray-600 dark:text-white text-sm sm:min-w-0 sm:w-auto"
                     >
                       <option value="">เลือก...</option>
                       {Object.keys(categoryColors).map((category) => (
@@ -694,7 +699,7 @@ export function Welcome() {
                   <select
                     value={newTodoPriority}
                     onChange={(e) => setNewTodoPriority(e.target.value as 'low' | 'medium' | 'high')}
-                    className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent dark:bg-gray-600 dark:text-white"
+                    className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent dark:bg-gray-600 dark:text-white text-sm"
                   >
                     <option value="low">🟢 ต่ำ</option>
                     <option value="medium">🟡 ปานกลาง</option>
@@ -718,29 +723,30 @@ export function Welcome() {
         </div>
 
         {/* Search and Filter Controls */}
-        <div className="bg-white dark:bg-gray-800 rounded-xl p-6 shadow-lg border border-gray-100 dark:border-gray-700 mb-8">
+        <div className="bg-gradient-to-br from-white to-purple-50 dark:from-gray-800 dark:to-gray-900 rounded-xl p-4 sm:p-6 shadow-lg hover:shadow-2xl hover:shadow-purple-500/10 border border-gray-100 dark:border-gray-700 mb-6 sm:mb-8 transition-all duration-300 transform hover:scale-[1.01] hover:-translate-y-1">
           <div className="flex flex-col space-y-4">
             {/* Search */}
-            <div className="flex items-center space-x-2">
+            <div className="flex flex-col sm:flex-row items-stretch sm:items-center space-y-2 sm:space-y-0 sm:space-x-2">
               <div className="relative flex-1">
                 <input
                   type="text"
                   value={searchTerm}
                   onChange={(e) => setSearchTerm(e.target.value)}
                   placeholder="ค้นหางาน..."
-                  className="w-full pl-10 pr-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent dark:bg-gray-700 dark:text-white placeholder-gray-500 dark:placeholder-gray-400"
+                  className="w-full pl-10 pr-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent dark:bg-gray-700 dark:text-white placeholder-gray-500 dark:placeholder-gray-400 text-sm sm:text-base hover:shadow-md focus:shadow-lg transition-shadow duration-300"
                 />
-                <span className="absolute left-3 top-2.5 text-gray-400">🔍</span>
+                <span className="absolute left-3 top-2.5 text-gray-400 hover:text-blue-500 transition-colors duration-200">🔍</span>
               </div>
               <button
                 onClick={() => setAdvancedSearchVisible(!advancedSearchVisible)}
-                className={`px-4 py-2 rounded-lg font-medium transition-colors ${
+                className={`px-3 sm:px-4 py-2 rounded-lg font-medium transition-all duration-300 text-sm sm:text-base transform hover:scale-105 hover:shadow-lg ${
                   advancedSearchVisible 
-                    ? 'bg-blue-600 text-white' 
-                    : 'bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-600'
+                    ? 'bg-gradient-to-r from-blue-600 to-blue-700 text-white shadow-blue-500/30' 
+                    : 'bg-gradient-to-r from-gray-100 to-gray-200 dark:from-gray-700 dark:to-gray-600 text-gray-700 dark:text-gray-300 hover:from-gray-200 hover:to-gray-300 dark:hover:from-gray-600 dark:hover:to-gray-500 shadow-gray-500/20'
                 }`}
               >
-                🔧 ขั้นสูง
+                <span className="hidden sm:inline">🔧 ขั้นสูง</span>
+                <span className="sm:hidden">🔧</span>
               </button>
             </div>
 
@@ -871,64 +877,73 @@ export function Welcome() {
             )}
 
             {/* Filter and Sort Controls */}
-            <div className="flex flex-col lg:flex-row space-y-4 lg:space-y-0 lg:space-x-4">
+            <div className="flex flex-col space-y-4">
               {/* Status Filter Buttons */}
-              <div className="flex space-x-2">
+              <div className="flex flex-wrap gap-2">
                 {(['all', 'active', 'completed'] as FilterType[]).map((filterType) => (
                   <button
                     key={filterType}
                     onClick={() => setFilter(filterType)}
-                    className={`px-4 py-2 rounded-lg font-medium transition-colors ${
+                    className={`px-3 sm:px-4 py-2 rounded-lg font-medium transition-all duration-300 text-sm sm:text-base transform hover:scale-105 hover:shadow-lg ${
                       filter === filterType
-                        ? 'bg-blue-600 text-white'
-                        : 'bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-600'
+                        ? 'bg-gradient-to-r from-blue-600 to-blue-700 text-white shadow-blue-500/30'
+                        : 'bg-gradient-to-r from-gray-100 to-gray-200 dark:from-gray-700 dark:to-gray-600 text-gray-700 dark:text-gray-300 hover:from-gray-200 hover:to-gray-300 dark:hover:from-gray-600 dark:hover:to-gray-500 shadow-gray-500/20'
                     }`}
                   >
-                    {filterType === 'all' ? '📋 ทั้งหมด' : filterType === 'active' ? '⏳ รอดำเนินการ' : '✅ เสร็จแล้ว'}
+                    <span className="hidden sm:inline">
+                      {filterType === 'all' ? '📋 ทั้งหมด' : filterType === 'active' ? '⏳ รอดำเนินการ' : '✅ เสร็จแล้ว'}
+                    </span>
+                    <span className="sm:hidden">
+                      {filterType === 'all' ? '📋 ทั้งหมด' : filterType === 'active' ? '⏳ รอ' : '✅ เสร็จ'}
+                    </span>
                   </button>
                 ))}
               </div>
 
-              {/* Category Filter */}
-              <select
-                value={selectedCategory}
-                onChange={(e) => setSelectedCategory(e.target.value)}
-                className="px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent dark:bg-gray-700 dark:text-white"
-              >
-                <option value="all">📂 หมวดหมู่ทั้งหมด</option>
-                <option value="no-category">📄 ไม่มีหมวดหมู่</option>
-                {categories.map((category) => (
-                  <option key={category} value={category}>
-                    📁 {category}
-                  </option>
-                ))}
-              </select>
+              {/* Category and Sort Filters */}
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 sm:gap-4">
+                <select
+                  value={selectedCategory}
+                  onChange={(e) => setSelectedCategory(e.target.value)}
+                  className="px-3 sm:px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent dark:bg-gray-700 dark:text-white text-sm sm:text-base"
+                >
+                  <option value="all">📂 หมวดหมู่ทั้งหมด</option>
+                  <option value="no-category">📄 ไม่มีหมวดหมู่</option>
+                  {categories.map((category) => (
+                    <option key={category} value={category}>
+                      📁 {category}
+                    </option>
+                  ))}
+                </select>
 
-              {/* Sort Dropdown */}
-              <select
-                value={sortBy}
-                onChange={(e) => setSortBy(e.target.value as SortType)}
-                className="px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent dark:bg-gray-700 dark:text-white"
-              >
-                <option value="newest">🕒 ใหม่ที่สุด</option>
-                <option value="oldest">⏰ เก่าที่สุด</option>
-                <option value="priority">⭐ ความสำคัญ</option>
-                <option value="alphabetical">🔤 ตัวอักษร</option>
-              </select>
+                {/* Sort Dropdown */}
+                <select
+                  value={sortBy}
+                  onChange={(e) => setSortBy(e.target.value as SortType)}
+                  className="px-3 sm:px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent dark:bg-gray-700 dark:text-white text-sm sm:text-base"
+                >
+                  <option value="newest">🕒 ใหม่ที่สุด</option>
+                  <option value="oldest">⏰ เก่าที่สุด</option>
+                  <option value="priority">⭐ ความสำคัญ</option>
+                  <option value="alphabetical">🔤 ตัวอักษร</option>
+                </select>
+              </div>
 
               {/* Clear Filters Button */}
               {(searchTerm || selectedCategory !== 'all' || filter !== 'all' || sortBy !== 'newest') && (
-                <button
-                  onClick={() => {
-                    setSearchTerm('');
-                    setSelectedCategory('all');
-                    setFilter('all');
-                    setSortBy('newest');
-                  }}
-                  className="px-4 py-2 bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 rounded-lg hover:bg-gray-200 dark:hover:bg-gray-600 transition-colors"
-                >
-                  🗑️ ล้างตัวกรอง
-                </button>
+                <div className="pt-2">
+                  <button
+                    onClick={() => {
+                      setSearchTerm('');
+                      setSelectedCategory('all');
+                      setFilter('all');
+                      setSortBy('newest');
+                    }}
+                    className="w-full sm:w-auto px-3 sm:px-4 py-2 bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 rounded-lg hover:bg-gray-200 dark:hover:bg-gray-600 transition-colors text-sm sm:text-base"
+                  >
+                    🗑️ ล้างตัวกรอง
+                  </button>
+                </div>
               )}
             </div>
           </div>
@@ -936,35 +951,39 @@ export function Welcome() {
 
         {/* Bulk Actions */}
         {selectedTodos.size > 0 && (
-          <div className="bg-blue-50 dark:bg-blue-900 border border-blue-200 dark:border-blue-700 rounded-xl p-4 mb-8">
-            <div className="flex flex-col sm:flex-row items-center justify-between space-y-2 sm:space-y-0">
-              <span className="text-blue-800 dark:text-blue-200 font-medium">
+          <div className="bg-blue-50 dark:bg-blue-900 border border-blue-200 dark:border-blue-700 rounded-xl p-3 sm:p-4 mb-6 sm:mb-8">
+            <div className="flex flex-col space-y-3 sm:space-y-0 sm:flex-row sm:items-center sm:justify-between">
+              <span className="text-blue-800 dark:text-blue-200 font-medium text-sm sm:text-base text-center sm:text-left">
                 เลือกแล้ว {selectedTodos.size} รายการ
               </span>
-              <div className="flex space-x-2">
+              <div className="grid grid-cols-2 sm:flex gap-2 sm:space-x-2">
                 <button
                   onClick={bulkComplete}
-                  className="px-4 py-2 bg-green-600 hover:bg-green-700 text-white rounded-lg transition-colors text-sm"
+                  className="px-3 sm:px-4 py-2 bg-green-600 hover:bg-green-700 text-white rounded-lg transition-colors text-xs sm:text-sm"
                 >
-                  ✅ ทำเสร็จ
+                  <span className="hidden sm:inline">✅ ทำเสร็จ</span>
+                  <span className="sm:hidden">✅ เสร็จ</span>
                 </button>
                 <button
                   onClick={bulkUncomplete}
-                  className="px-4 py-2 bg-yellow-600 hover:bg-yellow-700 text-white rounded-lg transition-colors text-sm"
+                  className="px-3 sm:px-4 py-2 bg-yellow-600 hover:bg-yellow-700 text-white rounded-lg transition-colors text-xs sm:text-sm"
                 >
-                  ↩️ ยกเลิก
+                  <span className="hidden sm:inline">↩️ ยกเลิก</span>
+                  <span className="sm:hidden">↩️ ยกเลิก</span>
                 </button>
                 <button
                   onClick={bulkDelete}
-                  className="px-4 py-2 bg-red-600 hover:bg-red-700 text-white rounded-lg transition-colors text-sm"
+                  className="px-3 sm:px-4 py-2 bg-red-600 hover:bg-red-700 text-white rounded-lg transition-colors text-xs sm:text-sm"
                 >
-                  🗑️ ลบ
+                  <span className="hidden sm:inline">🗑️ ลบ</span>
+                  <span className="sm:hidden">🗑️</span>
                 </button>
                 <button
                   onClick={clearSelection}
-                  className="px-4 py-2 bg-gray-600 hover:bg-gray-700 text-white rounded-lg transition-colors text-sm"
+                  className="px-3 sm:px-4 py-2 bg-gray-600 hover:bg-gray-700 text-white rounded-lg transition-colors text-xs sm:text-sm col-span-2 sm:col-span-1"
                 >
-                  ✖️ ยกเลิกการเลือก
+                  <span className="hidden sm:inline">✖️ ยกเลิกการเลือก</span>
+                  <span className="sm:hidden">✖️ ยกเลิก</span>
                 </button>
               </div>
             </div>
@@ -972,38 +991,53 @@ export function Welcome() {
         )}
 
         {/* Quick Actions */}
-        <div className="flex flex-col sm:flex-row justify-between items-center space-y-4 sm:space-y-0 mb-8">
-          <div className="flex flex-wrap gap-2">
-            <button
-              onClick={selectAllVisible}
-              className="px-4 py-2 bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 rounded-lg hover:bg-blue-200 dark:hover:bg-blue-800 transition-colors text-sm"
-            >
-              🔄 เลือกทั้งหมด
-            </button>
-            <button
-              onClick={clearSelection}
-              className="px-4 py-2 bg-gray-100 dark:bg-gray-700 text-gray-800 dark:text-gray-200 rounded-lg hover:bg-gray-200 dark:hover:bg-gray-600 transition-colors text-sm"
-            >
-              ✖️ ยกเลิกการเลือก
-            </button>
+        <div className="bg-gray-50 dark:bg-gray-800 rounded-xl p-3 sm:p-4 mb-6 sm:mb-8">
+          <div className="flex flex-col space-y-3">
+            {/* Selection Actions */}
+            <div className="flex flex-wrap gap-2">
+              <button
+                onClick={selectAllVisible}
+                className="px-3 sm:px-4 py-2 bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 rounded-lg hover:bg-blue-200 dark:hover:bg-blue-800 transition-colors text-xs sm:text-sm"
+              >
+                <span className="hidden sm:inline">✅ เลือกทั้งหมด</span>
+                <span className="sm:hidden">✅ เลือกทั้งหมด</span>
+              </button>
+              <button
+                onClick={clearSelection}
+                className="px-3 sm:px-4 py-2 bg-gray-100 dark:bg-gray-700 text-gray-800 dark:text-gray-200 rounded-lg hover:bg-gray-200 dark:hover:bg-gray-600 transition-colors text-xs sm:text-sm"
+              >
+                <span className="hidden sm:inline">✖️ ยกเลิกการเลือก</span>
+                <span className="sm:hidden">✖️ ยกเลิก</span>
+              </button>
+              
+              {completedCount > 0 && (
+                <button
+                  onClick={clearCompleted}
+                  className="px-3 sm:px-4 py-2 bg-red-100 dark:bg-red-900 text-red-800 dark:text-red-200 rounded-lg hover:bg-red-200 dark:hover:bg-red-800 transition-colors text-xs sm:text-sm"
+                >
+                  <span className="hidden sm:inline">🧹 ลบงานที่เสร็จแล้ว ({completedCount})</span>
+                  <span className="sm:hidden">🧹 ลบเสร็จ ({completedCount})</span>
+                </button>
+              )}
+            </div>
             
-            {/* Export/Import Buttons */}
-            <div className="flex space-x-2">
+            {/* Export/Import Actions */}
+            <div className="flex flex-wrap gap-2">
               <button
                 onClick={exportToJSON}
-                className="px-4 py-2 bg-green-100 dark:bg-green-900 text-green-800 dark:text-green-200 rounded-lg hover:bg-green-200 dark:hover:bg-green-800 transition-colors text-sm"
+                className="px-3 sm:px-4 py-2 bg-green-100 dark:bg-green-900 text-green-800 dark:text-green-200 rounded-lg hover:bg-green-200 dark:hover:bg-green-800 transition-colors text-xs sm:text-sm"
                 title="ส่งออกเป็น JSON"
               >
                 📤 JSON
               </button>
               <button
                 onClick={exportToCSV}
-                className="px-4 py-2 bg-yellow-100 dark:bg-yellow-900 text-yellow-800 dark:text-yellow-200 rounded-lg hover:bg-yellow-200 dark:hover:bg-yellow-800 transition-colors text-sm"
+                className="px-3 sm:px-4 py-2 bg-yellow-100 dark:bg-yellow-900 text-yellow-800 dark:text-yellow-200 rounded-lg hover:bg-yellow-200 dark:hover:bg-yellow-800 transition-colors text-xs sm:text-sm"
                 title="ส่งออกเป็น CSV"
               >
                 📊 CSV
               </button>
-              <label className="px-4 py-2 bg-purple-100 dark:bg-purple-900 text-purple-800 dark:text-purple-200 rounded-lg hover:bg-purple-200 dark:hover:bg-purple-800 transition-colors text-sm cursor-pointer">
+              <label className="px-3 sm:px-4 py-2 bg-purple-100 dark:bg-purple-900 text-purple-800 dark:text-purple-200 rounded-lg hover:bg-purple-200 dark:hover:bg-purple-800 transition-colors text-xs sm:text-sm cursor-pointer">
                 📥 นำเข้า
                 <input
                   type="file"
@@ -1014,25 +1048,16 @@ export function Welcome() {
               </label>
             </div>
           </div>
-          
-          {completedCount > 0 && (
-            <button
-              onClick={clearCompleted}
-              className="px-4 py-2 bg-red-100 dark:bg-red-900 text-red-800 dark:text-red-200 rounded-lg hover:bg-red-200 dark:hover:bg-red-800 transition-colors text-sm"
-            >
-              🧹 ลบงานที่เสร็จแล้ว ({completedCount})
-            </button>
-          )}
         </div>
 
         {/* Todo List */}
-        <div className="space-y-3">
+        <div className="space-y-2 sm:space-y-3">
           {isFocusMode && (
-            <div className="bg-purple-50 dark:bg-purple-900 border border-purple-200 dark:border-purple-700 rounded-xl p-4 mb-4">
+            <div className="bg-purple-50 dark:bg-purple-900 border border-purple-200 dark:border-purple-700 rounded-xl p-3 sm:p-4 mb-3 sm:mb-4">
               <div className="flex items-center space-x-2">
-                <span className="text-2xl">🎯</span>
+                <span className="text-xl sm:text-2xl">🎯</span>
                 <div>
-                  <h3 className="font-semibold text-purple-800 dark:text-purple-200">โหมดโฟกัส</h3>
+                  <h3 className="font-semibold text-purple-800 dark:text-purple-200 text-sm sm:text-base">โหมดโฟกัส</h3>
                   <p className="text-sm text-purple-600 dark:text-purple-300">
                     แสดงเฉพาะงานสำคัญ (ความสำคัญสูง) และงานเร่งด่วน (ใกล้ครบกำหนดหรือเลยกำหนด)
                   </p>
@@ -1042,11 +1067,11 @@ export function Welcome() {
           )}
           
           {displayTodos.length === 0 ? (
-            <div className="text-center py-16">
-              <div className="text-8xl mb-6">
+            <div className="text-center py-12 sm:py-16 bg-gradient-to-br from-white to-gray-50 dark:from-gray-800 dark:to-gray-900 rounded-xl shadow-lg hover:shadow-2xl hover:shadow-blue-500/10 border border-gray-100 dark:border-gray-700 transition-all duration-300 transform hover:scale-[1.01] hover:-translate-y-1">
+              <div className="text-5xl sm:text-6xl lg:text-8xl mb-4 sm:mb-6 float-animation">
                 {isFocusMode ? '🎯' : searchTerm ? '🔍' : selectedCategory !== 'all' ? '📂' : filter === 'all' ? '📝' : filter === 'active' ? '⏳' : '🎉'}
               </div>
-              <p className="text-gray-500 dark:text-gray-400 text-xl mb-2">
+              <p className="text-gray-500 dark:text-gray-400 text-base sm:text-lg lg:text-xl mb-2 px-4">
                 {isFocusMode 
                   ? 'ไม่มีงานสำคัญหรือเร่งด่วนในขณะนี้ 🎉'
                   : searchTerm 
@@ -1062,7 +1087,7 @@ export function Welcome() {
                           : 'ไม่มีงานที่เสร็จแล้ว'
                 }
               </p>
-              <p className="text-gray-400 dark:text-gray-500">
+              <p className="text-gray-400 dark:text-gray-500 text-sm sm:text-base px-4">
                 {isFocusMode 
                   ? 'คุณจัดการงานได้ดีมาก! ลองปิดโหมดโฟกัสเพื่อดูงานทั้งหมด'
                   : searchTerm || selectedCategory !== 'all' ? 'ลองเปลี่ยนเงื่อนไขการค้นหา' : 'เพิ่มงานใหม่เพื่อเริ่มต้น'
@@ -1148,12 +1173,12 @@ function TodoItem({ todo, isSelected, onToggle, onDelete, onEdit, onSelect, getP
   };
 
   return (
-    <div className={`group bg-white dark:bg-gray-800 rounded-xl p-5 shadow-lg border border-gray-100 dark:border-gray-700 transition-all duration-200 hover:shadow-xl hover:scale-[1.01] ${
-      todo.completed ? 'opacity-75' : ''
-    } ${isSelected ? 'ring-2 ring-blue-500 dark:ring-blue-400' : ''}`}
+    <div className={`group bg-gradient-to-br from-white to-gray-50 dark:from-gray-800 dark:to-gray-900 rounded-xl p-3 sm:p-4 lg:p-5 shadow-lg border border-gray-100 dark:border-gray-700 transition-all duration-300 hover:shadow-2xl hover:shadow-blue-500/20 hover:scale-[1.02] hover:-translate-y-1 ${
+      todo.completed ? 'opacity-75 hover:opacity-90' : ''
+    } ${isSelected ? 'ring-2 ring-blue-500 dark:ring-blue-400 shadow-blue-500/30' : ''}`}
     style={{ animationDelay: `${index * 50}ms` }}
     >
-      <div className="flex items-center space-x-4">
+      <div className="flex items-start sm:items-center space-x-3 sm:space-x-4">
         {/* Completion Toggle (with multi-select on Ctrl/Cmd click) */}
         <button
           onClick={(e) => {
@@ -1163,17 +1188,17 @@ function TodoItem({ todo, isSelected, onToggle, onDelete, onEdit, onSelect, getP
               onToggle(todo.id);
             }
           }}
-          className={`w-8 h-8 rounded-full border-2 flex items-center justify-center transition-all relative ${
+          className={`w-6 h-6 sm:w-7 sm:h-7 lg:w-8 lg:h-8 rounded-full border-2 flex items-center justify-center transition-all duration-300 relative shrink-0 transform hover:scale-110 ${
             todo.completed
-              ? 'bg-green-500 border-green-500 text-white shadow-lg'
+              ? 'bg-gradient-to-r from-green-500 to-green-600 border-green-500 text-white shadow-lg shadow-green-500/30'
               : isSelected
-                ? 'bg-blue-500 border-blue-500 text-white shadow-lg'
-                : 'border-gray-300 dark:border-gray-600 hover:border-green-500 dark:hover:border-green-400 hover:shadow-md'
+                ? 'bg-gradient-to-r from-blue-500 to-blue-600 border-blue-500 text-white shadow-lg shadow-blue-500/30'
+                : 'border-gray-300 dark:border-gray-600 hover:border-green-500 dark:hover:border-green-400 hover:shadow-lg hover:shadow-green-500/20'
           }`}
           title={isSelected ? 'เลือกแล้ว (Ctrl+Click เพื่อยกเลิก)' : 'คลิกเพื่อทำเครื่องหมายเสร็จ, Ctrl+Click เพื่อเลือก'}
         >
-          {todo.completed && <span className="text-sm">✓</span>}
-          {isSelected && !todo.completed && <span className="text-sm">✓</span>}
+          {todo.completed && <span className="text-xs sm:text-sm">✓</span>}
+          {isSelected && !todo.completed && <span className="text-xs sm:text-sm">✓</span>}
           {isSelected && (
             <div className="absolute -top-1 -right-1 w-3 h-3 bg-blue-600 rounded-full border-2 border-white dark:border-gray-800"></div>
           )}
@@ -1187,14 +1212,14 @@ function TodoItem({ todo, isSelected, onToggle, onDelete, onEdit, onSelect, getP
               onChange={(e) => setEditText(e.target.value)}
               onBlur={handleEdit}
               onKeyDown={handleKeyPress}
-              className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent dark:bg-gray-700 dark:text-white text-lg"
+              className="w-full px-2 sm:px-3 py-1.5 sm:py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent dark:bg-gray-700 dark:text-white text-sm sm:text-base lg:text-lg"
               autoFocus
             />
           ) : (
-            <div className="space-y-2">
-              <div className="flex items-center space-x-3">
+            <div className="space-y-2 sm:space-y-3">
+              <div className="flex flex-col sm:flex-row sm:items-center space-y-2 sm:space-y-0 sm:space-x-3">
                 <span
-                  className={`flex-1 cursor-pointer text-lg ${
+                  className={`flex-1 cursor-pointer text-sm sm:text-base lg:text-lg ${
                     todo.completed
                       ? 'line-through text-gray-500 dark:text-gray-400'
                       : 'text-gray-800 dark:text-white'
@@ -1204,25 +1229,25 @@ function TodoItem({ todo, isSelected, onToggle, onDelete, onEdit, onSelect, getP
                   {todo.text}
                 </span>
                 
-                <div className="flex items-center space-x-2">
+                <div className="flex flex-wrap items-center gap-1.5 sm:gap-2">
                   {todo.category && (
-                    <span className={`px-3 py-1 text-sm rounded-full border font-medium ${getCategoryColor(todo.category)}`}>
-                      📁 {todo.category}
+                    <span className={`px-2 sm:px-3 py-1 text-xs sm:text-sm rounded-full border font-medium ${getCategoryColor(todo.category)}`}>
+                      <span className="hidden sm:inline">📁 </span>{todo.category}
                     </span>
                   )}
-                  <span className={`px-3 py-1 text-sm rounded-full border font-medium ${getPriorityColor(todo.priority)}`}>
-                    {getPriorityIcon(todo.priority)} {todo.priority === 'high' ? 'สูง' : todo.priority === 'medium' ? 'ปานกลาง' : 'ต่ำ'}
+                  <span className={`px-2 sm:px-3 py-1 text-xs sm:text-sm rounded-full border font-medium ${getPriorityColor(todo.priority)}`}>
+                    {getPriorityIcon(todo.priority)} <span className="hidden sm:inline">{todo.priority === 'high' ? 'สูง' : todo.priority === 'medium' ? 'ปานกลาง' : 'ต่ำ'}</span>
                   </span>
                   {todo.dueDate && (
-                    <span className={`px-3 py-1 text-sm rounded-full border font-medium ${getDueDateStatus(todo.dueDate)?.color}`}>
-                      🗓️ {getDueDateStatus(todo.dueDate)?.text}
+                    <span className={`px-2 sm:px-3 py-1 text-xs sm:text-sm rounded-full border font-medium ${getDueDateStatus(todo.dueDate)?.color}`}>
+                      🗓️ <span className="hidden sm:inline">{getDueDateStatus(todo.dueDate)?.text}</span>
                     </span>
                   )}
                 </div>
               </div>
               
-              <div className="flex items-center justify-between text-xs text-gray-500 dark:text-gray-400">
-                <span>
+              <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between space-y-1 sm:space-y-0 text-xs text-gray-500 dark:text-gray-400">
+                <span className="text-xs sm:text-sm">
                   📅 {todo.createdAt.toLocaleDateString('th-TH', {
                     year: 'numeric',
                     month: 'short',
@@ -1231,10 +1256,10 @@ function TodoItem({ todo, isSelected, onToggle, onDelete, onEdit, onSelect, getP
                     minute: '2-digit'
                   })}
                 </span>
-                <div className="flex items-center space-x-2">
+                <div className="flex flex-wrap items-center gap-2">
                   {todo.dueDate && (
                     <span className={`px-2 py-1 text-xs rounded ${getDueDateStatus(todo.dueDate)?.color} font-medium`}>
-                      ⏰ ครบกำหนด: {todo.dueDate.toLocaleDateString('th-TH', {
+                      ⏰ <span className="hidden sm:inline">ครบกำหนด: </span>{todo.dueDate.toLocaleDateString('th-TH', {
                         year: 'numeric',
                         month: 'short',
                         day: 'numeric',
@@ -1243,7 +1268,7 @@ function TodoItem({ todo, isSelected, onToggle, onDelete, onEdit, onSelect, getP
                       })}
                     </span>
                   )}
-                  <span className="opacity-0 group-hover:opacity-100 transition-opacity">
+                  <span className="opacity-0 group-hover:opacity-100 transition-opacity text-xs">
                     ID: {todo.id.slice(-6)}
                   </span>
                 </div>
@@ -1253,20 +1278,20 @@ function TodoItem({ todo, isSelected, onToggle, onDelete, onEdit, onSelect, getP
         </div>
 
         {/* Action Buttons */}
-        <div className="flex space-x-1 opacity-0 group-hover:opacity-100 transition-opacity">
+        <div className="flex flex-col sm:flex-row space-y-1 sm:space-y-0 sm:space-x-1 opacity-100 sm:opacity-0 group-hover:opacity-100 transition-all duration-300 shrink-0">
           <button
             onClick={() => setIsEditing(!isEditing)}
-            className="p-2 text-gray-400 hover:text-blue-600 dark:text-gray-500 dark:hover:text-blue-400 transition-colors rounded-lg hover:bg-blue-50 dark:hover:bg-blue-900"
+            className="p-1.5 sm:p-2 text-gray-400 hover:text-blue-600 dark:text-gray-500 dark:hover:text-blue-400 transition-all duration-300 rounded-lg hover:bg-blue-50 dark:hover:bg-blue-900 transform hover:scale-110 hover:shadow-lg hover:shadow-blue-500/20"
             title="แก้ไข"
           >
-            <span className="text-lg">✏️</span>
+            <span className="text-sm sm:text-base lg:text-lg">✏️</span>
           </button>
           <button
             onClick={() => onDelete(todo.id)}
-            className="p-2 text-gray-400 hover:text-red-600 dark:text-gray-500 dark:hover:text-red-400 transition-colors rounded-lg hover:bg-red-50 dark:hover:bg-red-900"
+            className="p-1.5 sm:p-2 text-gray-400 hover:text-red-600 dark:text-gray-500 dark:hover:text-red-400 transition-all duration-300 rounded-lg hover:bg-red-50 dark:hover:bg-red-900 transform hover:scale-110 hover:shadow-lg hover:shadow-red-500/20"
             title="ลบ"
           >
-            <span className="text-lg">🗑️</span>
+            <span className="text-sm sm:text-base lg:text-lg">🗑️</span>
           </button>
         </div>
       </div>
